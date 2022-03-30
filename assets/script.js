@@ -27,3 +27,5 @@
 
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
+
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
