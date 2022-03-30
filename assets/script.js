@@ -25,4 +25,5 @@
 // 	 If current hour === time block hour set it to present
 // 	 Otherwise set time blocks to future
 
-        
+var todayDate = moment().format('dddd, MMM Do YYYY');
+$("#currentDay").html(todayDate);
