@@ -31,12 +31,20 @@ $("#currentDay").html(todayDate);
 $(".saveBtn").on("click", function(){
 console.log(this);
 
+//compares current time to time slots 
 $(".time-div").each(function () {
     var timeDiv = $(this).attr("id").split("-")[1];
 if (currentHour===timeDiv){
 $(this).addClass("present");
 $(this).removeClass("past");
 $(this).removeClass("future");
+} else if (currentHour<timeDiv){
+    $(this).addClass("past");
+$(this).removeClass("present");
+$(this).removeClass("future");
+} else if(currentHour>timeDiv){
+    $(this).addClass("future");
+$(this).removeClass("past");
+$(this).removeClass("present");
 }
-
 });
