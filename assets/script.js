@@ -42,17 +42,17 @@ $(document).ready(function () {
 
         //compares current time to time slots and assigned colors
         $(".time-block").each(function () {
-            var timeDiv = parseInt($(this).attr("id").split("hour")[1]);
+            var timeBlock = parseInt($(this).attr("id").split("hour")[1]);
 
-            if (currentHour === timeDiv) {
+            if (currentHour === timeBlock) {
                 $(this).addClass("present");
                 $(this).removeClass("past");
                 $(this).removeClass("future");
-            } else if (currentHour < timeDiv) {
+            } else if (currentHour < timeBlock) {
                 $(this).addClass("past");
                 $(this).removeClass("present");
                 $(this).removeClass("future");
-            } else if (currentHour > timeDiv) {
+            } else if (currentHour > timeBlock) {
                 $(this).addClass("future");
                 $(this).removeClass("past");
                 $(this).removeClass("present");
