@@ -28,4 +28,15 @@
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
-<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+$(".saveBtn").on("click", function(){
+console.log(this);
+
+$(".time-div").each(function () {
+    var timeDiv = $(this).attr("id").split("-")[1];
+if (currentHour===timeDiv){
+$(this).addClass("present");
+$(this).removeClass("past");
+$(this).removeClass("future");
+}
+
+});
