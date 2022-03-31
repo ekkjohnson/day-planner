@@ -29,7 +29,7 @@ $(document).ready(function () {
     let displayDate = document.getElementById("currentDay");
     displayDate.innerHTML = todayDate;
 
-
+//clears text from local storage
     $("#clearFieldsBtn").click(function (event) {
         event.preventDefault;
         $("textarea").val("");
@@ -40,7 +40,7 @@ $(document).ready(function () {
         var currentHour = moment().hour();
 
 
-        //compares current time to time slots 
+        //compares current time to time slots and assigned colors
         $(".time-block").each(function () {
             var timeDiv = parseInt($(this).attr("id").split("hour")[1]);
 
@@ -59,7 +59,7 @@ $(document).ready(function () {
             }
         });
     }
-    //save in localStorage
+    //gets from localStorage
     $("#hour8 .description").val(localStorage.getItem("hour8"));
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
