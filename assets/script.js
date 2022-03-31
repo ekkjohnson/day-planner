@@ -25,41 +25,42 @@
 // 	 If current hour === time block hour set it to present
 // 	 Otherwise set time blocks to future
 $(document).ready(function () {
-var todayDate = moment().format('dddd, MMM Do YYYY');
-let displayDate = document.getElementById("currentDay");
-displayDate.innerHTML = todayDate;
-  
-
-  $("#clearFieldsBtn").click(function (event) {
-    event.preventDefault;
-    $("textarea").val("");
-    localStorage.clear();
-  });
-
-function timeSlots(){
-    var currentHour = moment().hour();
+    var todayDate = moment().format('dddd, MMM Do YYYY');
+    let displayDate = document.getElementById("currentDay");
+    displayDate.innerHTML = todayDate;
 
 
-//compares current time to time slots 
-$(".time-div").each(function () {
-    var timeDiv = $(this).attr("id").split("-")[1];
-if (currentHour === timeDiv){
-$(this).addClass("present");
-$(this).removeClass("past");
-$(this).removeClass("future");
-} else if (currentHour < timeDiv){
-    $(this).addClass("past");
-$(this).removeClass("present");
-$(this).removeClass("future");
-} else if(currentHour > timeDiv){
-    $(this).addClass("future");
-$(this).removeClass("past");
-$(this).removeClass("present");
-}
-});
-}
-//save in localStorage
-$("#hour8 .description").val(localStorage.getItem("hour8"));
+    $("#clearFieldsBtn").click(function (event) {
+        event.preventDefault;
+        $("textarea").val("");
+        localStorage.clear();
+    });
+
+    function timeSlots() {
+        var currentHour = moment().hour();
+
+
+        //compares current time to time slots 
+        $(".time-block").each(function () {
+            var timeDiv = parseInt($(this).attr("id").split("hour")[1]);
+
+            if (currentHour === timeDiv) {
+                $(this).addClass("present");
+                $(this).removeClass("past");
+                $(this).removeClass("future");
+            } else if (currentHour < timeDiv) {
+                $(this).addClass("past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+            } else if (currentHour > timeDiv) {
+                $(this).addClass("future");
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+            }
+        });
+    }
+    //save in localStorage
+    $("#hour8 .description").val(localStorage.getItem("hour8"));
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
     $("#hour11 .description").val(localStorage.getItem("hour11"));
